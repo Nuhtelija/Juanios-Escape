@@ -19,6 +19,9 @@ public class PlayerScript : MonoBehaviour {
 	public Transform firePoint;
 	public GameObject ninjaStar;
 
+	public float shotDelay;
+	private float shotDelayCounter;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -75,6 +78,16 @@ public class PlayerScript : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+			shotDelayCounter = shotDelay;
+		}
+		if(Input.GetKey(KeyCode.Return)) {
+			shotDelayCounter -= Time.deltaTime;
+
+			if (shotDelayCounter <= 0) {
+				shotDelayCounter = shotDelay;
+				Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+
+			}
 		}
 
 
@@ -86,5 +99,9 @@ public class PlayerScript : MonoBehaviour {
 
 	public void Jump(){
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+
+	
+
+
 	}
 }

@@ -11,6 +11,9 @@ public class NinjaStarController : MonoBehaviour {
 
 	public GameObject impactEffect;
 
+	public int damageToGive;
+
+
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType<PlayerScript> ();
@@ -33,8 +36,10 @@ public class NinjaStarController : MonoBehaviour {
 		Destroy (gameObject);
 
 		if (other.tag == "Enemy") {
-			Instantiate (enemyDeathEffect, other.transform.position, other.transform.rotation);
-			Destroy (other.gameObject);
+			//Instantiate (enemyDeathEffect, other.transform.position, other.transform.rotation);
+			//Destroy (other.gameObject);
+
+			other.GetComponent<EnemyHealthManager> ().giveDamage (damageToGive);
 		}
 	}
 }
