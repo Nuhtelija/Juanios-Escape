@@ -41,11 +41,7 @@ public class LevelManager : MonoBehaviour {
 		player.enabled = false;
 		player.GetComponent<Renderer>().enabled = false;
 		camera.isFollowing = false;
-		//gravityStore = player.GetComponent<Rigidbody2D> ().gravityScale;
-		//player.GetComponent<Rigidbody2D>().gravityScale = 0f;
-		//player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		yield return new WaitForSeconds (respawnDelay);
-		//player.GetComponent<Rigidbody2D>().gravityScale = gravityStore;
 		player.transform.position = currentCheckpoint.transform.position;
 		player.enabled = true;
 		player.GetComponent<Renderer>().enabled = true;

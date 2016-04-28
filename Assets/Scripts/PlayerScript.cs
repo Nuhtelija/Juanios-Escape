@@ -22,9 +22,21 @@ public class PlayerScript : MonoBehaviour {
 	public float shotDelay;
 	private float shotDelayCounter;
 
+	private Rigidbody2D myrigidbody2D;
+
+	public bool onLadder;
+	public float climbSpeed;
+	private float climbVelocity;
+	private float gravityStore;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+
+		myrigidbody2D = GetComponent<Rigidbody2D> ();
+
+		gravityStore = myrigidbody2D.gravityScale;
+
 	}
 
 	void FixedUpdate() {
@@ -36,36 +48,22 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-
 		if (grounded)
 			doubleJumped = false;
 
 		anim.SetBool ("Grounded", grounded);
 
-		if (Input.GetKeyDown(KeyCode.UpArrow) && grounded) {
+		if (Input.GetButtonDown("Jump") && grounded) {
 			Jump ();
 		}
 
-		if (Input.GetKeyDown(KeyCode.UpArrow) && !doubleJumped && !grounded) {
+		if (Input.GetButtonDown("Jump") && !doubleJumped && !grounded) {
 
 			Jump ();
 			doubleJumped = true;
 		}
 
-		moveVelocity = 0f;
-
-		if (Input.GetKey(KeyCode.LeftArrow)) {
-
-			//GetComponent<Rigidbody2D>().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-			moveVelocity = -moveSpeed;
-		}
-
-		if (Input.GetKey(KeyCode.RightArrow)) {
-
-			//GetComponent<Rigidbody2D>().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-			moveVelocity = moveSpeed;
-		}
+		moveVelocity = moveSpeed * Input.GetAxisRaw ("Horizontal");
 
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 			
@@ -92,6 +90,18 @@ public class PlayerScript : MonoBehaviour {
 
 
 		anim.SetFloat ("Speed", (GetComponent<Rigidbody2D>().velocity.x));
+
+		if (onLadder) {
+			myrigidbody2D.gravityScale = 0f;
+
+			climbVelocity = climbSpeed * Input.GetAxisRaw ("Vertical");
+
+			myrigidbody2D.velocity = new Vector2 (myrigidbody2D.velocity.x, climbVelocity);
+		}
+
+		if (!onLadder) {
+			myrigidbody2D.gravityScale = gravityStore;
+		}
 	
 	
 
@@ -100,8 +110,21 @@ public class PlayerScript : MonoBehaviour {
 	public void Jump(){
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
 
-	
-
-
 	}
+
+	void OnCollisionEnter2D(Collision2D other){
+
+		if (other.transform.tag == "MovingPlatform") {
+
+			transform.parent = other.transform;
+		}
+	}
+
+		void OnCollisionExit2D(Collision2D other){
+
+			if (other.transform.tag == "MovingPlatform") {
+
+				transform.parent = null;
+			}
+}
 }

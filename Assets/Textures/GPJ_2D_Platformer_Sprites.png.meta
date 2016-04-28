@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: de418f3e4b8437c4994cce3eb4170002
-timeCreated: 1461796919
+timeCreated: 1461821014
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,7 @@ TextureImporter:
     21300014: Enemy_3
     21300016: NinjaStar
     21300018: Level_Exit
+    21300020: Ladder
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -166,6 +167,17 @@ TextureImporter:
         y: 48
         width: 19
         height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Ladder
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
