@@ -53,6 +53,8 @@ public class PlayerScript : MonoBehaviour {
 
 		anim.SetBool ("Grounded", grounded);
 
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+
 		if (Input.GetButtonDown("Jump") && grounded) {
 			Jump ();
 		}
@@ -63,10 +65,16 @@ public class PlayerScript : MonoBehaviour {
 			doubleJumped = true;
 		}
 
-		moveVelocity = moveSpeed * Input.GetAxisRaw ("Horizontal");
+		//moveVelocity = moveSpeed * Input.GetAxisRaw ("Horizontal");
+
+
+
+		Move (Input.GetAxisRaw ("Horizontal"));
+			
+	#endif
 
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
-			
+		anim.SetFloat ("Speed", (GetComponent<Rigidbody2D>().velocity.x));
 
 		if (GetComponent<Rigidbody2D> ().velocity.x > 0) 
 			transform.localScale = new Vector3 (1f, 1f, 1f);
@@ -74,8 +82,11 @@ public class PlayerScript : MonoBehaviour {
 		else if (GetComponent<Rigidbody2D> ().velocity.x < 0) 
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+
+		if (Input.GetButtonDown ("Fire1")) {
+			//Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+			Fire();
 			shotDelayCounter = shotDelay;
 		}
 		if(Input.GetKey(KeyCode.Return)) {
@@ -83,13 +94,16 @@ public class PlayerScript : MonoBehaviour {
 
 			if (shotDelayCounter <= 0) {
 				shotDelayCounter = shotDelay;
-				Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+				Fire();
+				//Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
 
 			}
 		}
 
 
-		anim.SetFloat ("Speed", (GetComponent<Rigidbody2D>().velocity.x));
+
+
+		#endif
 
 		if (onLadder) {
 			myrigidbody2D.gravityScale = 0f;
@@ -103,12 +117,32 @@ public class PlayerScript : MonoBehaviour {
 			myrigidbody2D.gravityScale = gravityStore;
 		}
 	
-	
 
 	}
 
+	public void Move(float moveInput){
+
+		moveVelocity = moveSpeed * moveInput;
+	}
+
+	public void Fire(){
+		Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+	}
+
 	public void Jump(){
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+		//GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+
+		if (grounded) {
+			//Jump ();
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+		}
+
+		if (!doubleJumped && !grounded) {
+
+			//Jump ();
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+			doubleJumped = true;
+		}
 
 	}
 
