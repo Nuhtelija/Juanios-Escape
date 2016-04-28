@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d9c357e7bf472d64c9ee533688ac7acc
-timeCreated: 1461831550
+timeCreated: 1461837914
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: GPJ_2D_Platformer_Buttons_0
     21300004: Touch_Jump
     21300006: Touch_Shoot
+    21300008: Touch_Pause
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -94,6 +95,17 @@ TextureImporter:
         y: 4
         width: 14
         height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Touch_Pause
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 24
+        width: 15
+        height: 15
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

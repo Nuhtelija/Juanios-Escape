@@ -5,11 +5,19 @@ public class TouchControls : MonoBehaviour {
 
 	private PlayerScript thePlayer;
 
+	private LevelLoader levelExit;
+
+	private PauseMenu thePauseMenu;
+
 
 	// Use this for initialization
 	void Start () {
 
 		thePlayer = FindObjectOfType<PlayerScript> ();
+
+		levelExit = FindObjectOfType<LevelLoader> ();
+
+		thePauseMenu = FindObjectOfType<PauseMenu> ();
 	}
 	
 
@@ -41,5 +49,14 @@ public class TouchControls : MonoBehaviour {
 
 		thePlayer.Jump ();
 
+		if (levelExit.playerInZone) {
+			levelExit.LoadLevel ();
+		}
+
+	}
+
+	public void Pause() {
+		thePauseMenu.PauseUnpause ();
+		
 	}
 }

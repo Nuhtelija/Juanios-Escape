@@ -42,7 +42,7 @@ public class PlayerScript : MonoBehaviour {
 	void FixedUpdate() {
 
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
-	
+
 	}
 
 	// Update is called once per frame
@@ -70,11 +70,11 @@ public class PlayerScript : MonoBehaviour {
 
 
 		Move (Input.GetAxisRaw ("Horizontal"));
-			
-	#endif
+
+		#endif
 
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
-		anim.SetFloat ("Speed", (GetComponent<Rigidbody2D>().velocity.x));
+		anim.SetFloat("Speed", (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x)));
 
 		if (GetComponent<Rigidbody2D> ().velocity.x > 0) 
 			transform.localScale = new Vector3 (1f, 1f, 1f);
@@ -116,7 +116,7 @@ public class PlayerScript : MonoBehaviour {
 		if (!onLadder) {
 			myrigidbody2D.gravityScale = gravityStore;
 		}
-	
+
 
 	}
 
@@ -154,11 +154,11 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-		void OnCollisionExit2D(Collision2D other){
+	void OnCollisionExit2D(Collision2D other){
 
-			if (other.transform.tag == "MovingPlatform") {
+		if (other.transform.tag == "MovingPlatform") {
 
-				transform.parent = null;
-			}
-}
+			transform.parent = null;
+		}
+	}
 }

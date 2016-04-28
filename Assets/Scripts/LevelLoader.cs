@@ -4,9 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
-	private bool playerInZone;
+	public bool playerInZone;
 
 	public string levelToLoad;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,10 @@ public class LevelLoader : MonoBehaviour {
 			SceneManager.LoadScene(levelToLoad);
 		}
 	
+	}
+
+	public void LoadLevel(){
+		SceneManager.LoadScene(levelToLoad);
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
