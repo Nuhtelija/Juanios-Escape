@@ -47,7 +47,7 @@ public class TimeManager : MonoBehaviour {
 		}
 
 		if (waitAfterGameOver < 0) {
-			SceneManager.LoadScene ("Main_menu");
+			SceneManager.LoadScene ("MainMenu");
 		}
 
 		theText.text = "" + Mathf.Round (startingTime);
