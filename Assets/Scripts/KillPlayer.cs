@@ -14,6 +14,14 @@ public class KillPlayer : MonoBehaviour {
 		levelManager = FindObjectOfType<LevelManager> ();
 	
 	}
+<<<<<<< HEAD
+=======
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+>>>>>>> origin/master
 
 	void OnTriggerEnter2D(Collider2D other){
 
