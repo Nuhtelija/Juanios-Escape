@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script gives functions to buttons so the game can be played on phone.
+/// </summary>
 public class TouchControls : MonoBehaviour {
 
 	private PlayerScript thePlayer;
@@ -19,33 +22,48 @@ public class TouchControls : MonoBehaviour {
 
 		thePauseMenu = FindObjectOfType<PauseMenu> ();
 	}
-	
 
-	public void LeftArrow() {
+
+    /// <summary>
+    /// Moves player to left.
+    /// </summary>
+    public void LeftArrow() {
 
 		thePlayer.Move (-1);
 	
 	}
 
-	public void RightArrow() {
+    /// <summary>
+    /// Moves player to right.
+    /// </summary>
+    public void RightArrow() {
 
 		thePlayer.Move (1);
 
 	}
 
-	public void UnPressedArrow() {
+    /// <summary>
+    /// Player stays still when nothing is pressed.
+    /// </summary>
+    public void UnPressedArrow() {
 
 		thePlayer.Move (0);
 
 	}
 
-	public void Shoot() {
+    /// <summary>
+    /// Makes player shoot
+    /// </summary>
+    public void Shoot() {
 
 		thePlayer.Fire ();
 
 	}
 
-	public void Jump() {
+    /// <summary>
+    /// Makes player jump.
+    /// </summary>
+    public void Jump() {
 
 		thePlayer.Jump ();
 
@@ -55,7 +73,10 @@ public class TouchControls : MonoBehaviour {
 
 	}
 
-	public void Pause() {
+    /// <summary>
+    /// Pauses and unpauses the game.
+    /// </summary>
+    public void Pause() {
 		thePauseMenu.PauseUnpause ();
 		
 	}

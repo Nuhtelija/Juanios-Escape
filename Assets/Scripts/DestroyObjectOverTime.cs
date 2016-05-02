@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script destroys object that has use no more so it wont take memory for no reason
+/// </summary>
 public class DestroyObjectOverTime : MonoBehaviour {
 
 	public float lifetime;
@@ -9,9 +12,12 @@ public class DestroyObjectOverTime : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+ 
+    /// <summary>
+    /// Coounts down user set lifetime of the object and the destroys it.
+    /// </summary>
+    void Update () {
 
 		lifetime -= Time.deltaTime;
 

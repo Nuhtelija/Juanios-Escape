@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script gives enemy health. If health drops to 0, then enemy will be destroyed.
+/// </summary>
 public class EnemyHealthManager : MonoBehaviour {
 
 	public int enemyHealth;
@@ -12,9 +15,12 @@ public class EnemyHealthManager : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /// <summary>
+    /// Used deatheffect when enemy health drops to 0 and destroys enemy
+    /// </summary>
+    void Update () {
 		if (enemyHealth <= 0) {
 			Instantiate (deathEffect, transform.position, transform.rotation);
 			Destroy (gameObject);
@@ -22,7 +28,11 @@ public class EnemyHealthManager : MonoBehaviour {
 	
 	}
 
-	public void giveDamage(int damageToGive) {
+    /// <summary>
+    /// Gives damage to enemy and play sound on hit.
+    /// </summary>
+    /// <param name="damageToGive">The damage to give.</param>
+    public void giveDamage(int damageToGive) {
 		enemyHealth -= damageToGive;
 		GetComponent<AudioSource>().Play ();
 	}

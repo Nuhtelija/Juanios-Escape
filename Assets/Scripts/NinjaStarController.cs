@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script gives to players bullet speed, damage and impact effect.
+/// </summary>
 public class NinjaStarController : MonoBehaviour {
 
 	public float speed;
@@ -14,23 +17,33 @@ public class NinjaStarController : MonoBehaviour {
 	public int damageToGive;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    /// <summary>
+    /// Makes player shoot at right direction
+    /// </summary>
+    void Start () {
 		player = FindObjectOfType<PlayerScript> ();
 
 		if(player.transform.localScale.x < 0)
 			speed = -speed;
-	
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /// <summary>
+    /// Gives bullet a speed.
+    /// </summary>
+    void Update () {
 
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (speed, GetComponent<Rigidbody2D>().velocity.y);
-	
+
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
+    /// <summary>
+    /// Gives enemy set damage when players bullet hit him.
+    /// </summary>
+    /// <param name="other">The other.</param>
+    void OnTriggerEnter2D(Collider2D other){
 
 		Instantiate (impactEffect, transform.position, transform.rotation);
 		Destroy (gameObject);

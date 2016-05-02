@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Controls many scripts of the game
+/// </summary>
 public class LevelManager : MonoBehaviour {
 
 	public GameObject currentCheckpoint;
@@ -30,7 +33,10 @@ public class LevelManager : MonoBehaviour {
 	
 	}
 
-	public void RespawnPlayer(){
+    /// <summary>
+    /// Respawns the player to nearest checkpoint. 
+    /// </summary>
+    public void RespawnPlayer(){
 
 		StartCoroutine ("RespawnPlayerCo");
 	}

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script controls all functions attached to player. 
+/// </summary>
 public class PlayerScript : MonoBehaviour {
 
 	public float moveSpeed;
@@ -29,8 +32,11 @@ public class PlayerScript : MonoBehaviour {
 	private float climbVelocity;
 	private float gravityStore;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    /// <summary>
+    /// Stores gravity level
+    /// </summary>
+    void Start () {
 		anim = GetComponent<Animator> ();
 
 		myrigidbody2D = GetComponent<Rigidbody2D> ();
@@ -39,14 +45,24 @@ public class PlayerScript : MonoBehaviour {
 
 	}
 
-	void FixedUpdate() {
+    /// <summary>
+    /// Checks is player on ground or not
+    /// </summary>
+    void FixedUpdate() {
 
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
 
 	}
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    /// <summary>
+    /// Gives player jump ability when on ground and double jump ability when on air.
+    /// Gives player ability to move
+    /// Gives player ability to shoot
+    /// Gives player ability to climb ladders
+    /// Makes moving platform child of player on collision so player move with the platform.
+    /// </summary>
+    void Update () {
 
 		if (grounded)
 			doubleJumped = false;

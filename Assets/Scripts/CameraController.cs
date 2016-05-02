@@ -1,28 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script set camera to follow player.
+/// </summary>
 public class CameraController : MonoBehaviour {
 
 	public PlayerScript player;
 
-	public bool isFollowing;
+    /// <summary>
+    /// Sets camera to follow player
+    /// </summary>
+    public bool isFollowing;
 
-	public float xOffset;
-	public float yOffset;
+    /// <summary>
+    /// Developer can set camera place on X-axis
+    /// </summary>
+    public float xOffset;
 
-	// Use this for initialization
+
+    /// <summary>
+    /// Developer can set camera place on Y-axis
+    /// </summary>
+    public float yOffset;
+
 	void Start () {
 		player = FindObjectOfType<PlayerScript> ();
 
 		isFollowing = true;
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		if (isFollowing)
-			transform.position = new Vector3 (player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
-	
-	}
+   
+    /// <summary>
+    /// Sets camera to follow player and developer can set camera position on X and Y-Axis
+    /// </summary>
+    void Update()
+    {
+
+        if (isFollowing)
+            transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
+
+    }
 }
