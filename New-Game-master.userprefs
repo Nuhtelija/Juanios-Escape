@@ -1,16 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\KillPlayer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LevelLoader.cs">
     <Files>
-      <File FileName="Assets\Scripts\KillPlayer.cs" Line="1" Column="1" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraController.cs">
-    <Files>
-      <File FileName="Assets\Scripts\CameraController.cs" Line="18" Column="2" />
-      <File FileName="Assets\Scripts\EnemyShootScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\NinjaStarController.cs" Line="1" Column="1" />
->>>>>>> origin/master
+      <File FileName="Assets\Scripts\MovingPlatform.cs" Line="47" Column="4" />
+      <File FileName="Assets\Scripts\LevelLoader.cs" Line="41" Column="10" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -63,10 +63,7 @@
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\ShootAtPlayer.cs" />
-<<<<<<< HEAD
      <Compile Include="Assets\Scripts\StompScript.cs" />
-=======
->>>>>>> origin/master
      <Compile Include="Assets\Scripts\TimeManager.cs" />
      <Compile Include="Assets\Scripts\TouchControls.cs" />
  <Reference Include="UnityEngine.UI">
