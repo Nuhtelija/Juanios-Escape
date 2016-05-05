@@ -2,16 +2,25 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Load new game and quits the game.
+/// </summary>
 public class MainMenu : MonoBehaviour {
 
 	public string startLevel;
 
-	public void NewGame(){
+    /// <summary>
+    /// Load new game.
+    /// </summary>
+    public void NewGame(){
 		SceneManager.LoadScene (startLevel);
 
 	}
 
-	public void QuitGame() {
+    /// <summary>
+    /// Quits the game.
+    /// </summary>
+    public void QuitGame() {
 		Application.Quit ();
 	}
 

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+///  This script checks if player is on ladder zone or not
+/// </summary>
 public class LadderZone : MonoBehaviour {
 
 	private PlayerScript thePlayer;

@@ -3,6 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This script counts down user set playing time and load game over screen when timer hits 0.
+/// After game over screen script load main menu.
+/// </summary>
 public class TimeManager : MonoBehaviour {
 
 	public float startingTime;
@@ -47,7 +51,7 @@ public class TimeManager : MonoBehaviour {
 		}
 
 		if (waitAfterGameOver < 0) {
-			SceneManager.LoadScene ("Main_menu");
+			SceneManager.LoadScene ("MainMenu");
 		}
 
 		theText.text = "" + Mathf.Round (startingTime);

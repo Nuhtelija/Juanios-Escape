@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script controls all functions attached to player. 
+/// </summary>
 public class PlayerScript : MonoBehaviour {
 
 	public float moveSpeed;
@@ -29,8 +32,11 @@ public class PlayerScript : MonoBehaviour {
 	private float climbVelocity;
 	private float gravityStore;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    /// <summary>
+    /// Stores gravity level
+    /// </summary>
+    void Start () {
 		anim = GetComponent<Animator> ();
 
 		myrigidbody2D = GetComponent<Rigidbody2D> ();
@@ -39,19 +45,31 @@ public class PlayerScript : MonoBehaviour {
 
 	}
 
-	void FixedUpdate() {
+    /// <summary>
+    /// Checks is player on ground or not
+    /// </summary>
+    void FixedUpdate() {
 
 		grounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
-	
+
 	}
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    /// <summary>
+    /// Gives player jump ability when on ground and double jump ability when on air.
+    /// Gives player ability to move
+    /// Gives player ability to shoot
+    /// Gives player ability to climb ladders
+    /// Makes moving platform child of player on collision so player move with the platform.
+    /// </summary>
+    void Update () {
 
 		if (grounded)
 			doubleJumped = false;
 
 		anim.SetBool ("Grounded", grounded);
+
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
 
 		if (Input.GetButtonDown("Jump") && grounded) {
 			Jump ();
@@ -63,10 +81,16 @@ public class PlayerScript : MonoBehaviour {
 			doubleJumped = true;
 		}
 
-		moveVelocity = moveSpeed * Input.GetAxisRaw ("Horizontal");
+		//moveVelocity = moveSpeed * Input.GetAxisRaw ("Horizontal");
+
+
+
+		Move (Input.GetAxisRaw ("Horizontal"));
+
+		#endif
 
 		GetComponent<Rigidbody2D>().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
-			
+		anim.SetFloat("Speed", (Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x)));
 
 		if (GetComponent<Rigidbody2D> ().velocity.x > 0) 
 			transform.localScale = new Vector3 (1f, 1f, 1f);
@@ -74,8 +98,11 @@ public class PlayerScript : MonoBehaviour {
 		else if (GetComponent<Rigidbody2D> ().velocity.x < 0) 
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+
+		if (Input.GetButtonDown ("Fire1")) {
+			//Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+			Fire();
 			shotDelayCounter = shotDelay;
 		}
 		if(Input.GetKey(KeyCode.Return)) {
@@ -83,13 +110,16 @@ public class PlayerScript : MonoBehaviour {
 
 			if (shotDelayCounter <= 0) {
 				shotDelayCounter = shotDelay;
-				Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+				Fire();
+				//Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
 
 			}
 		}
 
 
-		anim.SetFloat ("Speed", (GetComponent<Rigidbody2D>().velocity.x));
+
+
+		#endif
 
 		if (onLadder) {
 			myrigidbody2D.gravityScale = 0f;
@@ -102,13 +132,33 @@ public class PlayerScript : MonoBehaviour {
 		if (!onLadder) {
 			myrigidbody2D.gravityScale = gravityStore;
 		}
-	
-	
+
 
 	}
 
+	public void Move(float moveInput){
+
+		moveVelocity = moveSpeed * moveInput;
+	}
+
+	public void Fire(){
+		Instantiate (ninjaStar, firePoint.position, firePoint.rotation);
+	}
+
 	public void Jump(){
-		GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+		//GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+
+		if (grounded) {
+			//Jump ();
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+		}
+
+		if (!doubleJumped && !grounded) {
+
+			//Jump ();
+			GetComponent<Rigidbody2D>().velocity = new Vector2 (GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+			doubleJumped = true;
+		}
 
 	}
 
@@ -120,11 +170,11 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-		void OnCollisionExit2D(Collision2D other){
+	void OnCollisionExit2D(Collision2D other){
 
-			if (other.transform.tag == "MovingPlatform") {
+		if (other.transform.tag == "MovingPlatform") {
 
-				transform.parent = null;
-			}
-}
+			transform.parent = null;
+		}
+	}
 }
