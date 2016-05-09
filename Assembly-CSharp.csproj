@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\EnemyHealthManager.cs" />
      <Compile Include="Assets\Scripts\EnemyPatrol.cs" />
      <Compile Include="Assets\Scripts\EnemyShootScript.cs" />
+     <Compile Include="Assets\Scripts\FallTeleport.cs" />
      <Compile Include="Assets\Scripts\KillPlayer.cs" />
      <Compile Include="Assets\Scripts\LadderZone.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\NinjaStarController.cs" />
      <Compile Include="Assets\Scripts\Parallax.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\PlatformFall.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\ShootAtPlayer.cs" />
      <Compile Include="Assets\Scripts\StompScript.cs" />
