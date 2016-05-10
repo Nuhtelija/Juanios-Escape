@@ -14,6 +14,8 @@ public class EnemyShootScript : MonoBehaviour {
 
 	public int damageToGive;
 
+	public LevelManager levelManager;
+
 
     // Use this for initialization
     /// <summary>
@@ -47,7 +49,8 @@ public class EnemyShootScript : MonoBehaviour {
 		Destroy (gameObject);
 
 		if (other.name == "Player") {
-			Destroy (other.gameObject);
+			other.GetComponent<AudioSource>().Play ();
+			levelManager.RespawnPlayer ();
 	}
 }
 }
