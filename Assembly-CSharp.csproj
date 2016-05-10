@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\ShootAtPlayer.cs" />
      <Compile Include="Assets\Scripts\StompScript.cs" />
+     <Compile Include="Assets\Scripts\StoryLine.cs" />
      <Compile Include="Assets\Scripts\TimeManager.cs" />
      <Compile Include="Assets\Scripts\TouchControls.cs" />
  <Reference Include="UnityEngine.UI">

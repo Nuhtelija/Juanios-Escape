@@ -15,7 +15,9 @@ public class LevelManager : MonoBehaviour {
 
 	public float respawnDelay;
 
-    private CameraController camera;
+	private CameraController camera;
+
+	private float gravityStore;
 
 	// Use this for initialization
 	void Start () {
