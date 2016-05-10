@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script makes enemy patrol. Enemy walks until he hits wall or edge and then turns around.
+/// </summary>
 public class EnemyPatrol : MonoBehaviour {
 
 	public float moveSpeed;
@@ -18,9 +21,12 @@ public class EnemyPatrol : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    /// <summary>
+    /// Checks if enemy is on edge or hitting wall. If this is true enemy turn around and keeps on moving.
+    /// </summary>
+    void Update () {
 		
 		hittingWall = Physics2D.OverlapCircle (wallCheck.position, wallCheckRadius, whatIsWall);
 

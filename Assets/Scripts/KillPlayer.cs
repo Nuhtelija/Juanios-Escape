@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Kills player when called.
+/// </summary>
 public class KillPlayer : MonoBehaviour {
 
 	public LevelManager levelManager;
@@ -9,11 +12,6 @@ public class KillPlayer : MonoBehaviour {
 	void Start () {
 
 		levelManager = FindObjectOfType<LevelManager> ();
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	
 	}
 

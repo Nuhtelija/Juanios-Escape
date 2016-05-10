@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script makes background move so it feels more realistic.
+/// </summary>
 public class Parallax : MonoBehaviour {
 
 	public Transform[] backgrounds;
-	private float[] parallaxScales;
+
+    /// <summary>
+    /// Sets the scale how much background moves when the player moves
+    /// </summary>
+    private float[] parallaxScales;
+
 	public float smoothing;
 
 	private Transform cam;

@@ -1,5 +1,0 @@
-sceneSetups:
-- path: "C:/Metropolia/PelitJaMobiilit/Juanio-master/New-Game/Assets/Level2 \u2013
-    backup.unity"
-  isLoaded: 1
-  isActive: 1
