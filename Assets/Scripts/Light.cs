@@ -27,6 +27,28 @@ public class Light : MonoBehaviour
 
         colliders = FindObjectsOfType<BoxCollider2D>();
 
+        int j = 0;
+        foreach (BoxCollider2D i in colliders)
+        {
+            if (i.gameObject.layer == 8)
+                j++;
+        }
+
+        BoxCollider2D[] temp = new BoxCollider2D[j];
+        j = 0;
+
+        foreach (BoxCollider2D i in colliders)
+        {
+            if (i.gameObject.layer == 8)
+            {
+                temp[j] = i;
+                j++;
+            }
+        }
+
+        colliders = new BoxCollider2D[temp.Length];
+        Array.Copy(temp, colliders, temp.Length);
+
         updateColliders();
     }
 
@@ -104,7 +126,7 @@ public class Light : MonoBehaviour
     {
         nodePositions.Clear();
 
-        int count = 100;
+        int count = 50;
 
         for (int i = 0; i < cornerPoints.Count; i++)
         {
@@ -162,6 +184,9 @@ public class Light : MonoBehaviour
 
         //Assign mesh to game object
         MF.mesh = mesh;
+        Transform old = myObject.transform;
+        
+ 
 
     }
 

@@ -63,7 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BossAI.cs" />
     <Compile Include="Assets\FallingDeath.cs" />
+    <Compile Include="Assets\FlyTowards.cs" />
+    <Compile Include="Assets\IfKeys.cs" />
+    <Compile Include="Assets\LightUp.cs" />
+    <Compile Include="Assets\PickUp.cs" />
+    <Compile Include="Assets\PickUpKey.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
     <Compile Include="Assets\Scripts\DestroyFinishedParticle.cs" />
@@ -87,9 +93,11 @@
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\ShootAtPlayer.cs" />
     <Compile Include="Assets\Scripts\StompScript.cs" />
+    <Compile Include="Assets\Scripts\SwitchArea.cs" />
     <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\TouchControls.cs" />
     <Compile Include="Assets\Scripts\Vector2Sort.cs" />
+    <Compile Include="Assets\StartMoving.cs" />
     <Compile Include="Assets\SwingScript.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />

@@ -37,8 +37,8 @@ public class CameraController : MonoBehaviour {
     /// </summary>
     void Update()
     {
-
-        if (isFollowing)
+        
+        if (isFollowing && player != null)
             transform.position = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, transform.position.z);
 
     }

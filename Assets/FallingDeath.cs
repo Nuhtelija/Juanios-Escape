@@ -52,12 +52,14 @@ public class FallingDeath : MonoBehaviour
             int j = 0;
             foreach (Transform i in transforms)
             {
-                j++;
+                
+                
                 distCovered = (Time.time - dropTime) * speed;
                 fracJourney = distCovered / distance;
                 i.transform.position = Vector3.MoveTowards(new Vector2(i.transform.position.x, target.position.y), new Vector2(i.transform.position.x, starting[j].y), fracJourney);
+                j++;
             }
-            if (transform.position.y == starting[j].y)
+            if (transform.position.y == starting[0].y)
             {
                 rising = false;
                 dropped = false;
