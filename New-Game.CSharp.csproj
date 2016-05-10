@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.3.4f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -63,13 +65,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\BossAI.cs" />
-    <Compile Include="Assets\FallingDeath.cs" />
-    <Compile Include="Assets\FlyTowards.cs" />
-    <Compile Include="Assets\IfKeys.cs" />
-    <Compile Include="Assets\LightUp.cs" />
-    <Compile Include="Assets\PickUp.cs" />
-    <Compile Include="Assets\PickUpKey.cs" />
+    <Compile Include="Assets\Scripts\BossAI.cs" />
+    <Compile Include="Assets\Scripts\FallingDeath.cs" />
+    <Compile Include="Assets\Scripts\FlyTowards.cs" />
+    <Compile Include="Assets\Scripts\IfKeys.cs" />
+    <Compile Include="Assets\Scripts\LightUp.cs" />
+    <Compile Include="Assets\Scripts\PickUp.cs" />
+    <Compile Include="Assets\Scripts\PickUpKey.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
     <Compile Include="Assets\Scripts\DestroyFinishedParticle.cs" />
@@ -97,8 +99,8 @@
     <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\TouchControls.cs" />
     <Compile Include="Assets\Scripts\Vector2Sort.cs" />
-    <Compile Include="Assets\StartMoving.cs" />
-    <Compile Include="Assets\SwingScript.cs" />
+    <Compile Include="Assets\Scripts\StartMoving.cs" />
+    <Compile Include="Assets\Scripts\SwingScript.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
