@@ -15,14 +15,13 @@ public class BossAI : MonoBehaviour
     public Transform edgeCheck;
     public Transform groundCheck;
     public float groundCheckRadius;
-    public float jumpHeight; 
+    public float jumpHeight;
     public LayerMask whatIsGround;
 
     private GameObject player;
-    private Vector2 positionDifference;
+    public Vector2 positionDifference;
     private bool startFight = false;
     private bool grounded;
-
     // Use this for initialization
     void Start()
     {
@@ -41,52 +40,69 @@ public class BossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        positionDifference = new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y);
-        hittingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, whatIsWall);
-
-        notAtEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, whatIsWall);
-
-        if (positionDifference.x < 0)
-            moveRight = true;
-        else
-            moveRight = false;
-
-        if(positionDifference.y > 0)
-            Jump();
-
-        if (hittingWall)
-            moveRight = !moveRight;
-
-        if (!notAtEdge)
+        if (startFight)
         {
-            if (moveRight)
-                if (positionDifference.x > 0)
-                    moveRight = false;
+            positionDifference = new Vector2(transform.position.x - player.transform.position.x, transform.position.y - player.transform.position.y);
+            hittingWall = Physics2D.OverlapCircle(wallCheck.position, wallCheckRadius, whatIsWall);
+
+            notAtEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, whatIsWall);
+
+            if (positionDifference.x < 0)
+                moveRight = true;
+            else
+                moveRight = false;
+
+            if (positionDifference.y < 0)
+                Jump();
+
+            if (hittingWall)
+                moveRight = !moveRight;
+            else if (hittingWall && !grounded)
+            {
+                moveRight = !moveRight;
+                Jump();
+            }
+
+            if (!notAtEdge)
+            {
+                if (moveRight)
+                {
+                    if (positionDifference.x > 0)
+                        moveRight = false;
+                }
                 else
                     Jump();
-        }
+
+            }
 
 
-        if (moveRight)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-            GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            if (moveRight && grounded)
+            {
+
+                GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            }
+            else if (grounded)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+
+            }
         }
     }
     void Jump()
     {
-        if (grounded)
-        {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
-        }
+        if (Random.Range(0f, 1f) > 0.5f)
+            if (grounded)
+            {
+                GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
+            }
+    }
+
+    public void Fight()
+    {
+        startFight = true;
     }
 
 }
 
 
 
- 
