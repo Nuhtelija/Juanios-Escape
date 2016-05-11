@@ -18,7 +18,7 @@ public class TouchControls : MonoBehaviour {
 
 		thePlayer = FindObjectOfType<PlayerScript> ();
 
-		levelExit = FindObjectOfType<LevelLoader> ();
+//		levelExit = FindObjectOfType<LevelLoader> ();
 
 		thePauseMenu = FindObjectOfType<PauseMenu> ();
 	}
@@ -42,12 +42,31 @@ public class TouchControls : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Moves player Up.
+	/// </summary>
+	public void UpArrow() {
+
+		thePlayer.MoveLadder (1);
+
+	}
+
+	/// <summary>
+	/// Moves player to down.
+	/// </summary>
+	public void DownArrow() {
+
+		thePlayer.MoveLadder (-1);
+
+	}
+
     /// <summary>
     /// Player stays still when nothing is pressed.
     /// </summary>
     public void UnPressedArrow() {
 
 		thePlayer.Move (0);
+		thePlayer.MoveLadder (0);
 
 	}
 
@@ -67,9 +86,9 @@ public class TouchControls : MonoBehaviour {
 
 		thePlayer.Jump ();
 
-		if (levelExit.playerInZone) {
-			levelExit.LoadLevel ();
-		}
+//		if (levelExit.playerInZone) {
+//			levelExit.LoadLevel ();
+//		}
 
 	}
 

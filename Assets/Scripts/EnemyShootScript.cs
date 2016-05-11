@@ -14,7 +14,7 @@ public class EnemyShootScript : MonoBehaviour {
 
 	public int damageToGive;
 
-    public LevelManager levelManager;
+	public LevelManager levelManager;
 
 
     // Use this for initialization
@@ -22,7 +22,6 @@ public class EnemyShootScript : MonoBehaviour {
     /// Makes enemy shoot at right direction
     /// </summary>
     void Start () {
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
 		player = FindObjectOfType<PlayerScript> ();
 
 		if (player.transform.position.x < transform.position.x)
@@ -50,8 +49,8 @@ public class EnemyShootScript : MonoBehaviour {
 		Destroy (gameObject);
 
 		if (other.name == "Player") {
-            other.GetComponent<AudioSource>().Play();
-            levelManager.RespawnPlayer();
-        }
+			other.GetComponent<AudioSource>().Play ();
+			levelManager.RespawnPlayer ();
+	}
 }
 }

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// This rotates the object at given speed around a given point
+/// </summary>
 public class SwingScript : MonoBehaviour {
 
     public GameObject rotatePoint;

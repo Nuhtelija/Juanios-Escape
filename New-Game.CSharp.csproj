@@ -58,11 +58,18 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActivateBoss.cs" />
     <Compile Include="Assets\Scripts\BossAI.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
@@ -74,7 +81,14 @@
     <Compile Include="Assets\Scripts\FallTeleport.cs" />
     <Compile Include="Assets\Scripts\FallingDeath.cs" />
     <Compile Include="Assets\Scripts\FlyTowards.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\IfKeys.cs" />
+=======
+    <Compile Include="Assets\Scripts\HandleCanvas.cs" />
+    <Compile Include="Assets\Scripts\IfKeys.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
+>>>>>>> master
     <Compile Include="Assets\Scripts\KillPlayer.cs" />
     <Compile Include="Assets\Scripts\LadderZone.cs" />
     <Compile Include="Assets\Scripts\LevelLoader.cs" />
@@ -92,14 +106,44 @@
     <Compile Include="Assets\Scripts\PlatformFall.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\ShootAtPlayer.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Scripts\StartMoving.cs" />
     <Compile Include="Assets\Scripts\StompScript.cs" />
+=======
+    <Compile Include="Assets\Scripts\Slot.cs" />
+    <Compile Include="Assets\Scripts\StartMoving.cs" />
+    <Compile Include="Assets\Scripts\StompScript.cs" />
+    <Compile Include="Assets\Scripts\StoryLine.cs" />
+>>>>>>> master
     <Compile Include="Assets\Scripts\SwingScript.cs" />
     <Compile Include="Assets\Scripts\SwitchArea.cs" />
     <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\TouchControls.cs" />
     <Compile Include="Assets\Scripts\Vector2Sort.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\StartFight.cs" />
+=======
+    <Compile Include="Assets\Scripts\Vodkadudespeak.cs" />
+    <Compile Include="Assets\Scripts\collectableitem.cs" />
+    <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
+    <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
+    <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
+    <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
+    <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Imported\untitled.tiled2unity.xml" />
+    <None Include="Assets\Tiled2Unity\License.txt" />
+    <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Shaders\shaColorKey.shader" />
+    <None Include="Assets\Tiled2Unity\Shaders\shaDefault.shader" />
+    <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
+    <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
+    <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
+>>>>>>> master
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

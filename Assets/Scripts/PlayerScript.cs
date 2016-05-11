@@ -64,6 +64,8 @@ public class PlayerScript : MonoBehaviour {
     /// </summary>
     void Update () {
 
+		Debug.Log (climbVelocity);
+
 		if (grounded)
 			doubleJumped = false;
 
@@ -139,6 +141,11 @@ public class PlayerScript : MonoBehaviour {
 	public void Move(float moveInput){
 
 		moveVelocity = moveSpeed * moveInput;
+	}
+
+	public void MoveLadder(float moveInput){
+
+		climbVelocity = climbSpeed * moveInput;
 	}
 
 	public void Fire(){
