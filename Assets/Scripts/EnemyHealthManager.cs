@@ -9,7 +9,7 @@ public class EnemyHealthManager : MonoBehaviour {
 	public int enemyHealth;
 
 	public GameObject deathEffect;
-
+    public GameObject levelexit;
 
 	// Use this for initialization
 	void Start () {
@@ -21,6 +21,11 @@ public class EnemyHealthManager : MonoBehaviour {
     /// Used deatheffect when enemy health drops to 0 and destroys enemy
     /// </summary>
     void Update () {
+        if (enemyHealth <= 0 && gameObject.name == "Boss1") {
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+            Instantiate(levelexit, transform.position, transform.rotation);
+        }
 		if (enemyHealth <= 0) {
 			Instantiate (deathEffect, transform.position, transform.rotation);
 			Destroy (gameObject);
