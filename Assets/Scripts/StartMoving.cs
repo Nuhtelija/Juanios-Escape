@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Moves platform when player collides with it
+/// </summary>
 public class StartMoving : MonoBehaviour {
 
 

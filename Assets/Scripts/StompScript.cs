@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Kills player on hit and respawns him
+/// </summary>
 public class StompScript : MonoBehaviour {
 
 	public GameObject impactEffect;

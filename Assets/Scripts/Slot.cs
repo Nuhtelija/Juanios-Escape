@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+
+/// <summary>
+/// Checks is there empty slot in inventory. Updates sprites to added item in inventory.
+/// </summary>
 public class Slot : MonoBehaviour, IPointerClickHandler {
 	
 	public GameObject Door;
@@ -55,10 +59,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
 	}
 	
-	/// Update is called once per frame
-	void Update () {
-	
-	}
+
 	/// <summary>
 	///Adding item to slot and writing the number of stacks to stacktext
 	///</summary>

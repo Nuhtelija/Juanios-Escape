@@ -5,6 +5,10 @@ using System.Collections;
 /// </summary>
 public enum ItemType {WATER, ETHANOL, VODKA};
 
+
+/// <summary>
+/// Handles items that player have
+/// </summary>
 public class Item : MonoBehaviour {
 
 	public ItemType type;

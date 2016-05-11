@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
+/// <summary>
+///  Handles players inventory
+/// </summary>
 public class Inventory : MonoBehaviour {
 
 	private RectTransform inventoryRect;
@@ -32,18 +36,11 @@ public class Inventory : MonoBehaviour {
 		get{return emptySlots; }
 		set{emptySlots = value; }
 	}
-	/// <summary>
-	/// Use this for initialization
-	/// </summary>
+	
 	void Start () {
 		CreateLayout ();
 	}
-	///<summary>
-	/// Update is called once per frame
-	/// </summary>
-	void Update () {
-	
-	}
+
 
 	private void CreateLayout(){
 		allSlots = new List<GameObject> ();
@@ -91,7 +88,13 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	public bool AddItem(Item item){
+
+    /// <summary>
+    /// Adds the item.
+    /// </summary>
+    /// <param name="item">The item.</param>
+    /// <returns></returns>
+    public bool AddItem(Item item){
 		if (item.maxSize == 1) {
 			PlaceEmpty (item);
 			return true;

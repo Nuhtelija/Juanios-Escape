@@ -2,12 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// Scales canvas with screensize
+/// </summary>
 public class HandleCanvas : MonoBehaviour {
 
 	private CanvasScaler scaler;
-	///<summary>
-	/// Use this for initialization
-	/// </summary>
+	
 	void Start () {
 		scaler = GetComponent<CanvasScaler> ();
 

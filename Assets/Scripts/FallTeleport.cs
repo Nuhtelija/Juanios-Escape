@@ -2,6 +2,10 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Teleports player to another scene on collide
+/// </summary>
 public class FallTeleport : MonoBehaviour {
 
 	public bool playerInZone;

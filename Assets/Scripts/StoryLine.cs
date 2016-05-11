@@ -3,6 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Enables story at the start of the game
+/// </summary>
 public class StoryLine : MonoBehaviour {
 
     public float startingTime;

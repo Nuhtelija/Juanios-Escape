@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 
+
+/// <summary>
+/// NPC speak
+/// </summary>
 public class Vodkadudespeak : MonoBehaviour {
 
 	Text myText;
