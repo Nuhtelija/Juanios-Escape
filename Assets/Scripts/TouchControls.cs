@@ -42,12 +42,31 @@ public class TouchControls : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Moves player Up.
+	/// </summary>
+	public void UpArrow() {
+
+		thePlayer.MoveLadder (1);
+
+	}
+
+	/// <summary>
+	/// Moves player to down.
+	/// </summary>
+	public void DownArrow() {
+
+		thePlayer.MoveLadder (-1);
+
+	}
+
     /// <summary>
     /// Player stays still when nothing is pressed.
     /// </summary>
     public void UnPressedArrow() {
 
 		thePlayer.Move (0);
+		thePlayer.MoveLadder (0);
 
 	}
 

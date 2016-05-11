@@ -17,7 +17,7 @@ public class CheckPoints : MonoBehaviour {
 
    
     /// <summary>
-    /// Gives current checkpoint to levelManager
+    /// Spawns player to current checkpoint
     /// </summary>
     void Update () {
 	
