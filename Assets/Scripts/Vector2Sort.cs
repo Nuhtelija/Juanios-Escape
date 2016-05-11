@@ -42,6 +42,8 @@ class Vector2Sort : IComparer<Vector3>
         a.Normalize();
         b.Normalize();
 
+
+        // Sweep anticlockwise and test the angles; smaller gets drawn first
         if (Math.Atan2(a.x, a.y) < Math.Atan2(b.x, b.y))
             return 1;
         else if (Math.Atan2(a.x, a.y) > Math.Atan2(b.x, b.y))

@@ -13,8 +13,8 @@ public class Light : MonoBehaviour
 
     private List<Vector2> cornerPoints = new List<Vector2>();
     private GameObject myObject;
-    private List<Vector3> nodePositions;
-    private List<Vector3> sortedPos;
+    private List<Vector3> nodePositions = new List<Vector3>();
+    private List<Vector3> sortedPos = new List<Vector3>();
     private Vector2 objectLocation;
 
 
@@ -27,6 +27,28 @@ public class Light : MonoBehaviour
 
         colliders = FindObjectsOfType<BoxCollider2D>();
 
+        int j = 0;
+        foreach (BoxCollider2D i in colliders)
+        {
+            if (i.gameObject.layer == 8)
+                j++;
+        }
+
+        BoxCollider2D[] temp = new BoxCollider2D[j];
+        j = 0;
+
+        foreach (BoxCollider2D i in colliders)
+        {
+            if (i.gameObject.layer == 8)
+            {
+                temp[j] = i;
+                j++;
+            }
+        }
+
+        colliders = new BoxCollider2D[temp.Length];
+        Array.Copy(temp, colliders, temp.Length);
+
         updateColliders();
     }
 
@@ -35,9 +57,10 @@ public class Light : MonoBehaviour
 
         objectLocation = gameObject.transform.position;
         updateColliders();
-        shootRays(objectLocation);
+        shootRays(objectLocation, 40);
         updatePolygon();
-        
+
+
     }
 
 
@@ -48,16 +71,16 @@ public class Light : MonoBehaviour
         {
             if (1 << i.gameObject.layer == mask.value)
             {
-                Vector2 size = i.GetComponent<Transform>().lossyScale;
+                Vector2 size = i.GetComponent<Collider2D>().bounds.extents;
                 Vector3 centerpoint = new Vector3(i.GetComponent<Collider2D>().offset.x,
                                                      i.GetComponent<Collider2D>().offset.y,
                                                      0f);
-                Vector3 worldPos = i.transform.TransformPoint(i.GetComponent<Collider2D>().offset);
+                Vector3 worldPos = i.transform.position;
 
-                float top = worldPos.y + (size.y / 2f);
-                float btm = worldPos.y - (size.y / 2f);
-                float left = worldPos.x - (size.x / 2f);
-                float right = worldPos.x + (size.x / 2f);
+                float top = worldPos.y + (size.y);
+                float btm = worldPos.y - (size.y);
+                float left = worldPos.x - (size.x);
+                float right = worldPos.x + (size.x);
 
 
                 cornerPoints.Add(new Vector3(left, btm, worldPos.z));
@@ -99,15 +122,53 @@ public class Light : MonoBehaviour
 
     }
 
+    private void shootRays(Vector3 pos, float angle)
+    {
+        nodePositions.Clear();
+
+        int count = 50;
+
+        for (int i = 0; i < cornerPoints.Count; i++)
+        {
+            float testAngle = Mathf.Atan2(cornerPoints[i].x, cornerPoints[i].y);
+
+            if (testAngle < angle)
+            {
+                RaycastHit2D hit = Physics2D.Linecast(pos, cornerPoints[i]);
+                if (hit)
+                    nodePositions.Add(hit.point);
+            }
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            float angleDelta = angle / 100 * i;
+            float x = Mathf.Cos(angle - angleDelta);
+            float y = Mathf.Sin(angle - angleDelta);
+
+            RaycastHit2D hit = Physics2D.Raycast(objectLocation, new Vector2(x, y), 1 << LayerMask.NameToLayer("Light"));
+
+            if (hit == true)
+            {
+                //createLine(pos, hit.point, i);
+                nodePositions.Add(hit.point);
+            }
+        }
+
+    }
+
+
+
+
     public void updatePolygon()
     {
         //Destroy old game object
+
         myObject.GetComponent<MeshFilter>().mesh.Clear();
 
 
 
         //New mesh and game object
-        myObject.name = "MousePolygon";
         Mesh mesh = new Mesh();
 
         //Components
@@ -123,7 +184,10 @@ public class Light : MonoBehaviour
 
         //Assign mesh to game object
         MF.mesh = mesh;
-        myObject.GetComponent<Transform>().Translate(new Vector3(0, 0, 1f));
+        Transform old = myObject.transform;
+        
+ 
+
     }
 
 

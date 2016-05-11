@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: de418f3e4b8437c4994cce3eb4170002
-timeCreated: 1461821014
+timeCreated: 1462877907
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,17 @@ TextureImporter:
     21300016: NinjaStar
     21300018: Level_Exit
     21300020: Ladder
+    21300022: Boss1
+    21300024: Boss2
+    21300026: Boss3
+    21300028: Player2_2
+    21300030: Player2_1
+    21300032: Player2_3
+    21300034: Heart
+    21300036: GPJ_2D_Platformer_Sprites_7
+    21300038: GPJ_2D_Platformer_Sprites_8
+    21300040: GPJ_2D_Platformer_Sprites_9
+    21300042: GPJ_2D_Platformer_Sprites_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -178,6 +189,127 @@ TextureImporter:
         y: 80
         width: 16
         height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Boss1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 16
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Boss2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 16
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Boss3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 16
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Player2_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Player2_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Player2_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Heart
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 34
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GPJ_2D_Platformer_Sprites_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GPJ_2D_Platformer_Sprites_8
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GPJ_2D_Platformer_Sprites_9
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 49
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GPJ_2D_Platformer_Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 49
+        width: 16
+        height: 14
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
