@@ -9,8 +9,13 @@ public class EnemyHealthManager : BossAI
 
     public int enemyHealth;
 
+<<<<<<< HEAD
+	public GameObject deathEffect;
+    public GameObject levelexit;
+=======
     public GameObject deathEffect;
 
+>>>>>>> master
 
     // Use this for initialization
     void Start()
@@ -22,6 +27,20 @@ public class EnemyHealthManager : BossAI
     /// <summary>
     /// Used deatheffect when enemy health drops to 0 and destroys enemy
     /// </summary>
+<<<<<<< HEAD
+    void Update () {
+        if (enemyHealth <= 0 && gameObject.name == "Boss1") {
+            Instantiate(deathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+            Instantiate(levelexit, transform.position, transform.rotation);
+        }
+		if (enemyHealth <= 0) {
+			Instantiate (deathEffect, transform.position, transform.rotation);
+			Destroy (gameObject);
+		}
+	
+	}
+=======
     void Update()
     {
         if (enemyHealth <= 0)
@@ -31,6 +50,7 @@ public class EnemyHealthManager : BossAI
         }
 
     }
+>>>>>>> master
 
     /// <summary>
     /// Gives damage to enemy and play sound on hit.
