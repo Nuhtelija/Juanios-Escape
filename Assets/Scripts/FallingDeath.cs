@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This script makes the child objects fall to given target and then rise
+/// </summary>
 public class FallingDeath : MonoBehaviour
 {
 

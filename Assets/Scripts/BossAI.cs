@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BossAI : MonoBehaviour
+
+/// <summary>
+/// The AI for the Boss player
+/// Jumps when player is above, moves towards player and jumps when reaching edge
+/// Also random chance to jump in all above
+/// </summary>
+public class BossAI : KillPlayer
 {
     public float moveSpeed;
     public bool moveRight;

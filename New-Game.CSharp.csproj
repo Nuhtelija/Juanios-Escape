@@ -65,13 +65,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActivateBoss.cs" />
     <Compile Include="Assets\Scripts\BossAI.cs" />
-    <Compile Include="Assets\Scripts\FallingDeath.cs" />
-    <Compile Include="Assets\Scripts\FlyTowards.cs" />
-    <Compile Include="Assets\Scripts\IfKeys.cs" />
-    <Compile Include="Assets\Scripts\LightUp.cs" />
-    <Compile Include="Assets\Scripts\PickUp.cs" />
-    <Compile Include="Assets\Scripts\PickUpKey.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CheckPoints.cs" />
     <Compile Include="Assets\Scripts\DestroyFinishedParticle.cs" />
@@ -80,27 +75,32 @@
     <Compile Include="Assets\Scripts\EnemyPatrol.cs" />
     <Compile Include="Assets\Scripts\EnemyShootScript.cs" />
     <Compile Include="Assets\Scripts\FallTeleport.cs" />
+    <Compile Include="Assets\Scripts\FallingDeath.cs" />
+    <Compile Include="Assets\Scripts\FlyTowards.cs" />
+    <Compile Include="Assets\Scripts\IfKeys.cs" />
     <Compile Include="Assets\Scripts\KillPlayer.cs" />
     <Compile Include="Assets\Scripts\LadderZone.cs" />
     <Compile Include="Assets\Scripts\LevelLoader.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Light.cs" />
-    <Compile Include="Assets\Scripts\LightingMouse.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />
     <Compile Include="Assets\Scripts\NinjaStarController.cs" />
     <Compile Include="Assets\Scripts\Parallax.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\PickUp.cs" />
+    <Compile Include="Assets\Scripts\PickUpKey.cs" />
     <Compile Include="Assets\Scripts\PlatformFall.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\ShootAtPlayer.cs" />
+    <Compile Include="Assets\Scripts\StartMoving.cs" />
     <Compile Include="Assets\Scripts\StompScript.cs" />
+    <Compile Include="Assets\Scripts\StoryLine.cs" />
+    <Compile Include="Assets\Scripts\SwingScript.cs" />
     <Compile Include="Assets\Scripts\SwitchArea.cs" />
     <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\TouchControls.cs" />
     <Compile Include="Assets\Scripts\Vector2Sort.cs" />
-    <Compile Include="Assets\Scripts\StartMoving.cs" />
-    <Compile Include="Assets\Scripts\SwingScript.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\ImportBehaviour.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\SortingLayerExposed.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
@@ -119,6 +119,7 @@
     <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
     <None Include="Assets\Tiled2Unity\Textures\_ReadMe.txt" />
     <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
+    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

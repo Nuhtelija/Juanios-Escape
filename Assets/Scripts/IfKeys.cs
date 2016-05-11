@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Checks if player has all the keys
+/// </summary>
 public class IfKeys : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)

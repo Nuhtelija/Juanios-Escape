@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Makes this object move towards player and return to original position when out of radius
+/// </summary>
 public class FlyTowards : MonoBehaviour
 {
 

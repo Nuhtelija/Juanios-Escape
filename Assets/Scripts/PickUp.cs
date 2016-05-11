@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/// <summary>
+/// Picks up the keys and changes the given gameobject to another gameobject to indicate succesfful pickup
+/// </summary>
 public class PickUp : MonoBehaviour {
 
     public Transform start;

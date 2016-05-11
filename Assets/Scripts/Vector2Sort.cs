@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 
-class Vector2Sort : IComparer<Vector3>
+class Vector2Sort : Light, IComparer<Vector3>
 {
     private Vector2 center;
 
@@ -50,209 +50,209 @@ class Vector2Sort : IComparer<Vector3>
             return -1;
         else
             return 0;
-/*
-        int aSec = 4;   //secDetermine(a);
-        int bSec = 4;//secDetermine(b);
-
-        // Then we divide coordinates into four sections; positive x and negative y I, positive x positive y II etc ccw
-        // Draw I first, then II etc
-        if (aSec < bSec)
-            return -1;
-        else if (aSec > bSec)
-            return 1;
-        else
-        // in case both are in the same quadrant
-        // we have four cases with different criteria
-        {
-            // I 
-            // draw x closest to zero first, if both same then furthest y
-            if (aSec == 1)
-            {
-                if (a.y > b.y)
-                    return -1;
-                else if (a.y < b.y)
-                    return 1;
-                else
-                {
-                    if (a.x < b.x)
-                        return 1;
-                    if (a.x > b.x)
-                        return -1;
-                    else // they are actually same points
-                        return 0;
-                }
-            }
-            // II
-            // draw x closest to zero first, if both same then closest y
-            else if (aSec == 2)
-            {
-                if (a.y < b.y)
-                    return -1;
-                else if (a.y > b.y)
-                    return 1;
-                else
-                {
-                    if (a.x > b.x)
-                        return -1;
-                    if (a.x < b.x)
-                        return 1;
-                    else // they are actually same points
-                        return 0;
-                }
-            }
-            // III
-            // draw x closest to zero first, if both same then furthest y
-            else if (aSec == 3)
-            {
-                if (a.y < b.y)
-                    return -1;
-                else if (a.y > b.y)
-                    return 1;
-                else
-                {
-                    if (a.x < b.x)
-                        return -1;
-                    if (a.x > b.x)
-                        return 1;
-                    else // they are actually same points
-                        return 0;
-                }
-            }
-            // IV
-            // draw x closest to zero first, if both same then closest y
-            else 
-            {
-                if (a.x < b.x)
-                    return 1;
-                else if (a.x > b.x)
-                    return -1;
-                else
-                {
-                    if (a.y < b.y)
-                        return 1;
-                    if (a.y>  b.y)
-                        return -1;
-                    else // they are actually same points
-                        return 0;
-                }
-            }
-        }
-
-
-
         /*
-        // Is the x same with center (is the points above or below center x?)
-        if (a.x == 0 && b.x != a.x)
-        {
-            // a is on the center, b isn't. Draw a first if it's below axis and b is on the right side
-            if (a.y < 0 && b.x > 0)
-            {
-                return -1;
-            }
-            else if (a.y < 0 && b.x < 0)
-            {
-                return 1;
-            }
-            // a is above, so we check if b.x is positive (on the right side)
-            if (a.y > 0 && b.x > 0)
-            {
-                return 1;
+                int aSec = 4;   //secDetermine(a);
+                int bSec = 4;//secDetermine(b);
 
-            }
-            else if (a.y > 0 && b.x < 0)
-            {
-                return -1;
-            }
-        }
-
-        else if (b.x == 0 && b.x != a.x)
-        {
-            // b is on the center, a isn't. Draw b first if it's below axis and a is on the right side
-            if (b.y < 0 && a.x > 0)
-            {
-                return -1;
-            }
-            else if (b.y < 0 && a.x < 0)
-            {
-                return 1;
-            }
-            // a is above, so we check if b.x is positive (on the right side)
-            if (b.y > 0 && a.x > 0)
-            {
-                return 1;
-
-            }
-            else if (b.y > 0 && a.x < 0)
-            {
-                return -1;
-            }
-
-        }
-        else if (a.x == b.x && a.x - center.x == 0)
-        { // okay both are
-            if (a.y == b.y) // if y same then same
-                return 0;
-            else if (a.y < b.y) // if a lower then it goes first
-                return -1;
-            else
-                return 1;
-        }
-
-
-        // is it right side or left side? remember we go counter clockwise
-
-        if (a.x > 0 && b.x < 0)
-            return -1;
-        else if (b.x > 0 && a.x < 0)
-            return 1;
-        else
-        {
-            // okay both are on the same side, time to chekc which side
-            if (a.x > 0) // if positive then on right side
-            {
-                // draw closer first
-                if (a.x < b.x)
+                // Then we divide coordinates into four sections; positive x and negative y I, positive x positive y II etc ccw
+                // Draw I first, then II etc
+                if (aSec < bSec)
                     return -1;
-                else if (a.x > b.x)
+                else if (aSec > bSec)
                     return 1;
                 else
+                // in case both are in the same quadrant
+                // we have four cases with different criteria
                 {
-                    // okay again x is same so draw lowest y first
-                    if (a.y < b.y)
-                        return -1;
-                    else
-                        return 1;
-                }
-            }
-            else // now on the left side bigger goes first
-            {
-                
-                    // draw bigger first
-                    if (a.x > b.x)
-                        return -1;
-                    else if (a.x < b.x)
-                        return 1;
-                    else
+                    // I 
+                    // draw x closest to zero first, if both same then furthest y
+                    if (aSec == 1)
                     {
-                        // okay again x is same so draw higest y first
                         if (a.y > b.y)
                             return -1;
-                        else
+                        else if (a.y < b.y)
                             return 1;
+                        else
+                        {
+                            if (a.x < b.x)
+                                return 1;
+                            if (a.x > b.x)
+                                return -1;
+                            else // they are actually same points
+                                return 0;
+                        }
                     }
-                
-            }
-        }
-        /*
-    if (center.y - a.y < center.y - b.y)
-        return -1;
-    else if (center.y - a.y > center.y - b.y)
-        return 1;
-    else if (a.x == b.x && a.y == b.y)
-        return 0;
-    else
-        return 0;
-        */
+                    // II
+                    // draw x closest to zero first, if both same then closest y
+                    else if (aSec == 2)
+                    {
+                        if (a.y < b.y)
+                            return -1;
+                        else if (a.y > b.y)
+                            return 1;
+                        else
+                        {
+                            if (a.x > b.x)
+                                return -1;
+                            if (a.x < b.x)
+                                return 1;
+                            else // they are actually same points
+                                return 0;
+                        }
+                    }
+                    // III
+                    // draw x closest to zero first, if both same then furthest y
+                    else if (aSec == 3)
+                    {
+                        if (a.y < b.y)
+                            return -1;
+                        else if (a.y > b.y)
+                            return 1;
+                        else
+                        {
+                            if (a.x < b.x)
+                                return -1;
+                            if (a.x > b.x)
+                                return 1;
+                            else // they are actually same points
+                                return 0;
+                        }
+                    }
+                    // IV
+                    // draw x closest to zero first, if both same then closest y
+                    else 
+                    {
+                        if (a.x < b.x)
+                            return 1;
+                        else if (a.x > b.x)
+                            return -1;
+                        else
+                        {
+                            if (a.y < b.y)
+                                return 1;
+                            if (a.y>  b.y)
+                                return -1;
+                            else // they are actually same points
+                                return 0;
+                        }
+                    }
+                }
+
+
+
+                /*
+                // Is the x same with center (is the points above or below center x?)
+                if (a.x == 0 && b.x != a.x)
+                {
+                    // a is on the center, b isn't. Draw a first if it's below axis and b is on the right side
+                    if (a.y < 0 && b.x > 0)
+                    {
+                        return -1;
+                    }
+                    else if (a.y < 0 && b.x < 0)
+                    {
+                        return 1;
+                    }
+                    // a is above, so we check if b.x is positive (on the right side)
+                    if (a.y > 0 && b.x > 0)
+                    {
+                        return 1;
+
+                    }
+                    else if (a.y > 0 && b.x < 0)
+                    {
+                        return -1;
+                    }
+                }
+
+                else if (b.x == 0 && b.x != a.x)
+                {
+                    // b is on the center, a isn't. Draw b first if it's below axis and a is on the right side
+                    if (b.y < 0 && a.x > 0)
+                    {
+                        return -1;
+                    }
+                    else if (b.y < 0 && a.x < 0)
+                    {
+                        return 1;
+                    }
+                    // a is above, so we check if b.x is positive (on the right side)
+                    if (b.y > 0 && a.x > 0)
+                    {
+                        return 1;
+
+                    }
+                    else if (b.y > 0 && a.x < 0)
+                    {
+                        return -1;
+                    }
+
+                }
+                else if (a.x == b.x && a.x - center.x == 0)
+                { // okay both are
+                    if (a.y == b.y) // if y same then same
+                        return 0;
+                    else if (a.y < b.y) // if a lower then it goes first
+                        return -1;
+                    else
+                        return 1;
+                }
+
+
+                // is it right side or left side? remember we go counter clockwise
+
+                if (a.x > 0 && b.x < 0)
+                    return -1;
+                else if (b.x > 0 && a.x < 0)
+                    return 1;
+                else
+                {
+                    // okay both are on the same side, time to chekc which side
+                    if (a.x > 0) // if positive then on right side
+                    {
+                        // draw closer first
+                        if (a.x < b.x)
+                            return -1;
+                        else if (a.x > b.x)
+                            return 1;
+                        else
+                        {
+                            // okay again x is same so draw lowest y first
+                            if (a.y < b.y)
+                                return -1;
+                            else
+                                return 1;
+                        }
+                    }
+                    else // now on the left side bigger goes first
+                    {
+
+                            // draw bigger first
+                            if (a.x > b.x)
+                                return -1;
+                            else if (a.x < b.x)
+                                return 1;
+                            else
+                            {
+                                // okay again x is same so draw higest y first
+                                if (a.y > b.y)
+                                    return -1;
+                                else
+                                    return 1;
+                            }
+
+                    }
+                }
+                /*
+            if (center.y - a.y < center.y - b.y)
+                return -1;
+            else if (center.y - a.y > center.y - b.y)
+                return 1;
+            else if (a.x == b.x && a.y == b.y)
+                return 0;
+            else
+                return 0;
+                */
         /*
         if (a.x - center.x == 0 && b.x - center.x == 0)
         {

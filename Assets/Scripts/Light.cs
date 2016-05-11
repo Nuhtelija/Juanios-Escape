@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
+/// <summary>
+/// The script for dynamic lights
+/// </summary>
+
 public class Light : MonoBehaviour
 {
     BoxCollider2D[] colliders;
@@ -64,6 +68,11 @@ public class Light : MonoBehaviour
     }
 
 
+
+    /// <summary>
+    /// Finds all the colliders in the given mask in the map, then adds the node coordinates into memory
+    /// </summary>
+ 
     private void updateColliders()
     {
         cornerPoints.Clear();
@@ -92,7 +101,10 @@ public class Light : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Shoot rays from pos towards all the cornerpoints, then extra few to make the light pass more naturally
+    /// </summary>
+    /// <param name="pos"></param>
     private void shootRays(Vector3 pos)
     {
         nodePositions.Clear();
@@ -121,7 +133,11 @@ public class Light : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// Shoots rays with given angle from position
+    /// </summary>
+    /// <param name="pos"></param>
+    /// <param name="angle"></param>
     private void shootRays(Vector3 pos, float angle)
     {
         nodePositions.Clear();
@@ -159,7 +175,9 @@ public class Light : MonoBehaviour
 
 
 
-
+    /// <summary>
+    /// Updates the lights' polygons
+    /// </summary>
     public void updatePolygon()
     {
         //Destroy old game object
@@ -191,7 +209,11 @@ public class Light : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// Creates the mesh with given number
+    /// </summary>
+    /// <param name="num"></param>
+    /// <returns></returns>
     private Mesh CreateMesh(int num)
     {
 
